@@ -30,7 +30,7 @@
 #download.tab-content.active {
     display: flex !important;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     position: static;
     overflow: visible;
@@ -47,6 +47,10 @@
 
 .tab-content:not(.active) .item {
     animation: none;
+}
+
+#download .section-footer {
+    margin-top: auto;
 }
 
 /* ===== MOBILE RESPONSIVE ===== */
