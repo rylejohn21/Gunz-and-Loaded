@@ -125,3 +125,45 @@
     position: relative;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .nav-btn, .event-link {
+        padding: 12px 10px;
+        font-size: 0.9rem;
+    }
+
+    #download .download-buttons {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+
+    #download .download-link,
+    #download a.android,
+    #download a.apple {
+        padding: 20px 40px;
+        font-size: 1.3rem;
+        min-width: 200px;
+        min-height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-btn::after {
+        display: none;
+    }
+
+    #download .download-link,
+    #download a.android,
+    #download a.apple {
+        padding: 15px 30px;
+        font-size: 1rem;
+        min-width: 160px;
+        min-height: 50px;
+    }
+
+    #download .download-buttons {
+        gap: 15px;
+    }
+}

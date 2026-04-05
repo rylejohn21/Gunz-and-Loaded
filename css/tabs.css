@@ -48,3 +48,38 @@
 .tab-content:not(.active) .item {
     animation: none;
 }
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .display-box {
+        padding: 20px;
+        margin: 10px;
+        overflow: visible;
+    }
+
+    .tab-content {
+        padding-right: 5px;
+    }
+
+    .tab-content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .display-box {
+        padding: 15px;
+        margin: 8px;
+        border-radius: 8px;
+    }
+
+    .tab-content {
+        padding-right: 3px;
+    }
+
+    .tab-content h2 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+}

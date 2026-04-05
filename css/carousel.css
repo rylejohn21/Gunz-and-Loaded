@@ -93,3 +93,48 @@
 .dot:hover {
     background: rgba(243,195,0,0.8);
 }
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .carousel-container {
+        height: 250px;
+        margin: 0 auto 25px;
+    }
+
+    .carousel-prev, .carousel-next {
+        font-size: 1.5rem;
+        padding: 10px 12px;
+    }
+
+    .carousel-dots {
+        bottom: 10px;
+        gap: 8px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-container {
+        height: 180px;
+        margin: 0 auto 20px;
+    }
+
+    .carousel-prev, .carousel-next {
+        font-size: 1.2rem;
+        padding: 8px 10px;
+    }
+
+    .carousel-dots {
+        bottom: 8px;
+        gap: 6px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+}

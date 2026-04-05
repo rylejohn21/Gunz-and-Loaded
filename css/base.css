@@ -31,3 +31,25 @@ body {
     50% { background-position: 100px 100px, center center; }
     100% { background-position: 0 0, center center; }
 }
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+    body {
+        overflow-y: auto;
+    }
+
+    .main-container {
+        min-height: 100vh;
+        height: auto;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+}
