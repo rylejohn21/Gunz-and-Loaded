@@ -1,0 +1,43 @@
+/* ===== HEADER & NAVIGATION ===== */
+.header {
+    padding: 10px 50px;
+    background: linear-gradient(to right, #1a1a1a, #1a1a1a);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid rgba(243,195,0,0.2);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-tagline {
+    font-size: 1.5rem;
+    color: var(--codm-yellow);
+    text-shadow: 0 0 5px rgba(243,195,0,0.8);
+}
+
+.main-logo {
+    height: 70px;
+}
+
+.top-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 5px;
+    flex-wrap: wrap;
+}
+
+.top-nav .nav-btn {
+    flex: 0 0 auto;
+    min-width: auto;
+}
+
+.top-nav .event-link {
+    margin-left: 20px;
+}

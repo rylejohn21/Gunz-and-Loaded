@@ -1,0 +1,28 @@
+/* ===== ANIMATIONS & KEYFRAMES ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes glitch-anim {
+    0% { text-shadow: 4px 4px 0px #ff0000, -4px -4px 0px #0000ff; transform: skew(0deg); }
+    5% { text-shadow: 2px 2px 0px #ff0000, -2px -2px 0px #0000ff; transform: skew(-5deg); }
+    10% { text-shadow: 4px 4px 0px #ff0000, -4px -4px 0px #0000ff; transform: skew(0deg); }
+    15% { text-shadow: -4px 4px 0px #ff0000, 4px -4px 0px #0000ff; transform: skew(5deg); }
+    20% { text-shadow: 0px 0px 0px #ff0000, 0px 0px 0px #0000ff; transform: skew(0deg); }
+    45% { text-shadow: 4px 4px 0px #ff0000, -4px -4px 0px #0000ff; transform: skew(0deg); }
+    50% { text-shadow: 0px 0px 0px #ff0000, 0px 0px 0px #0000ff; transform: skew(0deg); }
+    55% { text-shadow: 0px 0px 0px #ff0000, 0px 0px 0px #0000ff; transform: skew(0deg); }
+    90% { text-shadow: 4px 4px 0px #ff0000, -4px -4px 0px #0000ff; transform: skew(0deg); }
+    100% { text-shadow: 4px 4px 0px #ff0000, -4px -4px 0px #0000ff; transform: skew(0deg); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}

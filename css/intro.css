@@ -1,0 +1,132 @@
+/* ===== INTRO OVERLAY ===== */
+#intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    background-size: cover;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-image 0.5s ease-in-out, opacity 0.8s ease-in-out, visibility 0.8s;
+    overflow: hidden;
+}
+
+#intro-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.intro-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    text-align: center;
+}
+
+.intro-logo {
+    width: 180px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 20px rgba(243,195,0,0.5));
+}
+
+.intro-title {
+    font-size: 3.5rem;
+    color: var(--codm-yellow);
+    text-shadow: 0 0 15px rgba(243,195,0,0.8);
+    margin: 0 0 40px 0;
+    font-family: 'Arial Black', sans-serif;
+    letter-spacing: 3px;
+    animation: glitch-anim 2s infinite;
+}
+
+.enter-btn {
+    position: relative;
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--codm-yellow);
+    border: 2px solid var(--codm-yellow);
+    padding: 20px 80px;
+    font-size: 2rem;
+    font-weight: 900;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 0 30px rgba(243,195,0,0.3), inset 0 0 20px rgba(243,195,0,0.1);
+    transition: all 0.3s ease;
+    clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+    letter-spacing: 4px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    overflow: visible;
+}
+
+.enter-btn:hover {
+    background: var(--codm-yellow);
+    color: black;
+    box-shadow: 0 0 60px rgba(243,195,0,0.9);
+    transform: scale(1.05);
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+.muzzle-flash {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #fff 10%, #ffaa00 40%, transparent 70%);
+    opacity: 0;
+    transition: all 0.1s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.enter-btn:hover .muzzle-flash {
+    transform: translateY(-50%) scale(1.5);
+    opacity: 1;
+    animation: flashShake 0.1s infinite alternate;
+}
+
+@keyframes flashShake {
+    0% { transform: translateY(-50%) scale(1.5) rotate(0deg); }
+    100% { transform: translateY(-50%) scale(1.7) rotate(10deg); }
+}
+
+.floating-gun {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 400px;
+    opacity: 0.8;
+    transform: rotate(-15deg);
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.8));
+    z-index: 1;
+}
+
+.hole {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, #000 30%, #333 40%, transparent 70%);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.2), inset 0 0 10px #000;
+    z-index: 5;
+    opacity: 0;
+    animation: shotFired 0.1s forwards;
+}
+
+.hole-1 { top: 20%; left: 20%; animation-delay: 0.5s; }
+.hole-2 { top: 70%; right: 25%; animation-delay: 0.8s; }
+.hole-3 { top: 40%; right: 10%; animation-delay: 1.2s; }
+
+@keyframes shotFired {
+    0% { transform: scale(3); opacity: 0; }
+    100% { transform: scale(1); opacity: 0.9; }
+}
