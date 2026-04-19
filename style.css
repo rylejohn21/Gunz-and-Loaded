@@ -610,7 +610,7 @@ iframe {
     margin: 0 0 40px 0;
     font-family: 'Arial Black', sans-serif;
     letter-spacing: 3px;
-    animation: glitch-anim 2s infinite;
+    animation: none;
 }
 
 .enter-btn {

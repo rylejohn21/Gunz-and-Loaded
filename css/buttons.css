@@ -1,17 +1,19 @@
 /* ===== BUTTONS ===== */
 .nav-btn, .event-link {
-    background: rgba(26,26,26,0.6);
+    background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
     color: white;
-    padding: 15px;
-    border: none;
+    padding: 14px 18px;
+    border: 1px solid rgba(255,255,255,0.08);
     text-align: center;
     cursor: pointer;
     text-decoration: none;
     font-weight: bold;
     clip-path: none;
-    transition: 0.2s;
+    transition: 0.28s var(--ease-out);
     white-space: nowrap;
-    overflow: visible;
+    overflow: hidden;
+    border-radius: 999px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
 }
 
 .nav-btn:active, .event-link:active {
@@ -21,38 +23,39 @@
 
 .nav-btn {
     position: relative;
-    overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border-bottom: 2px solid transparent;
-    text-shadow: 0 0 0px rgba(243,195,0,0);
+    transition: transform 0.28s var(--ease-out), box-shadow 0.28s var(--ease-out), color 0.28s var(--ease-out), background 0.28s var(--ease-out);
+    text-shadow: 0 0 0 rgba(243,195,0,0);
+    letter-spacing: 0.08em;
 }
 
 .nav-btn::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-    background: var(--codm-yellow);
-    transition: left 0.3s ease;
+    inset: 1px;
+    border-radius: inherit;
+    background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,0.18) 50%, transparent 80%);
+    transform: translateX(-120%);
+    transition: transform 0.45s var(--ease-out);
+    pointer-events: none;
 }
 
 .nav-btn:hover, .nav-btn.active {
-    color: var(--codm-yellow-dim);
-    transform: scale(1.1);
-    background: rgba(243,195,0,0.1);
-    border-radius: 5px;
-    text-shadow: 0 0 10px rgba(243,195,0,0.5);
+    color: #fff7d6;
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, rgba(243,195,0,0.18), rgba(243,195,0,0.06));
+    box-shadow: 0 14px 30px rgba(243,195,0,0.14);
+    text-shadow: 0 0 10px rgba(243,195,0,0.35);
 }
 
 .nav-btn.active {
-    text-shadow: 0 0 15px rgba(243,195,0,0.8);
+    border-color: rgba(243,195,0,0.35);
+    box-shadow: 0 16px 34px rgba(243,195,0,0.18), inset 0 1px 0 rgba(255,255,255,0.14);
+    text-shadow: 0 0 15px rgba(243,195,0,0.45);
 }
 
 .nav-btn:hover::after,
 .nav-btn.active::after {
-    left: 0;
+    transform: translateX(120%);
 }
 
 .event-link {
@@ -62,90 +65,262 @@
     display: inline-block;
 }
 
-#download .download-link,
-#download a.android,
-#download a.apple {
-    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+.utility-panel .action-card {
+    background: linear-gradient(145deg, rgba(20, 26, 38, 0.96), rgba(37, 44, 58, 0.9));
     color: white;
-    padding: 30px 80px;
-    border-radius: 8px;
+    padding: 14px 16px;
+    border-radius: 22px;
     text-decoration: none;
-    font-size: 1.8rem;
+    font-size: 1.08rem;
     display: inline-flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     transition: all 0.3s ease;
-    min-width: 280px;
-    min-height: 80px;
-    text-align: center;
+    min-width: 0;
+    min-height: 92px;
+    text-align: left;
     font-weight: bold;
-    border: 2px solid var(--codm-yellow);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.14);
+    box-shadow: 0 18px 36px rgba(0,0,0,0.24), inset 0 1px 0 rgba(255,255,255,0.08);
     cursor: pointer;
     position: relative;
     z-index: 1;
-    white-space: nowrap;
-    overflow: visible;
-}
-
-#download .download-link:hover,
-#download .download-link:focus,
-#download .download-link:active,
-#download a.android:hover,
-#download a.android:focus,
-#download a.android:active,
-#download a.apple:hover,
-#download a.apple:focus,
-#download a.apple:active {
-    background: linear-gradient(135deg, var(--codm-yellow), #f0b800);
-    color: black;
-    transform: scale(1.08);
-    box-shadow: 0 6px 25px rgba(243,195,0,0.6);
-}
-
-#download .download-link.android::before {
-    content: "";
-}
-
-#download .download-link.apple::before {
-    content: "";
-}
-
-#download .download-buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
+    white-space: normal;
+    overflow: hidden;
     width: 100%;
 }
 
-#download a.android,
-#download a.apple {
+.utility-panel .action-card:hover,
+.utility-panel .action-card:focus,
+.utility-panel .action-card:active {
+    transform: translateY(-6px) scale(1.01);
+    color: white;
+    border-color: rgba(255,255,255,0.26);
+    box-shadow: 0 16px 36px rgba(0,0,0,0.28);
+}
+
+button,
+a,
+.dot {
     position: relative;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
+}
+
+.action-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 6px;
+    min-height: 92px;
+    padding: 14px 16px;
+    border-radius: 22px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: linear-gradient(160deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04));
+    box-shadow: 0 18px 36px rgba(0,0,0,0.24);
+    transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), border-color 0.3s var(--ease-out), background 0.3s var(--ease-out);
+    isolation: isolate;
+}
+
+.action-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent 55%);
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.action-card::after {
+    content: "";
+    position: absolute;
+    right: -40px;
+    bottom: -40px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2), transparent 70%);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.action-card:hover {
+    transform: translateY(-6px) scale(1.01);
+}
+
+.content-wrapper a:active,
+.content-wrapper button:active,
+.content-wrapper .dot:active {
+    transform: scale(0.97);
+}
+
+.action-card__label,
+.action-card__meta {
+    position: relative;
+    z-index: 1;
+}
+
+.action-card__label {
+    font-size: clamp(0.95rem, 1.35vw, 1.2rem);
+    letter-spacing: 0.08em;
+}
+
+.action-card__meta {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 0.84rem;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.35;
+}
+
+.panel-download .action-card.android {
+    background:
+        linear-gradient(145deg, rgba(110, 231, 183, 0.24), rgba(8, 20, 24, 0.86)),
+        linear-gradient(180deg, rgba(255,255,255,0.08), transparent);
+    border-color: rgba(110, 231, 183, 0.28);
+}
+
+.panel-download .action-card.apple {
+    background:
+        linear-gradient(145deg, rgba(209, 250, 229, 0.18), rgba(22, 28, 36, 0.9)),
+        linear-gradient(180deg, rgba(255,255,255,0.08), transparent);
+    border-color: rgba(209, 250, 229, 0.24);
+}
+
+.panel-contact .action-card.contact-mail {
+    background:
+        linear-gradient(135deg, rgba(125, 211, 252, 0.26), rgba(15, 33, 56, 0.94)),
+        linear-gradient(180deg, rgba(255,255,255,0.1), transparent);
+    border-color: rgba(125, 211, 252, 0.34);
+    box-shadow: 0 18px 32px rgba(14, 30, 54, 0.28);
+}
+
+.panel-contact .action-card.contact-social {
+    background:
+        linear-gradient(135deg, rgba(59, 130, 246, 0.18), rgba(27, 36, 72, 0.94)),
+        linear-gradient(180deg, rgba(255,255,255,0.08), transparent);
+    border-color: rgba(96, 165, 250, 0.22);
+}
+
+.panel-topup .action-card.topup-codashop {
+    background:
+        linear-gradient(135deg, rgba(249, 168, 212, 0.2), rgba(61, 17, 48, 0.95)),
+        linear-gradient(180deg, rgba(255,255,255,0.08), transparent);
+    border-color: rgba(249, 168, 212, 0.24);
+}
+
+.panel-topup .action-card.topup-garena {
+    background:
+        linear-gradient(135deg, rgba(251, 146, 60, 0.22), rgba(66, 22, 12, 0.95)),
+        linear-gradient(180deg, rgba(255,255,255,0.08), transparent);
+    border-color: rgba(251, 146, 60, 0.24);
+}
+
+.panel-contact .action-card__label,
+.panel-topup .action-card__label {
+    line-height: 1.15;
+}
+
+.panel-contact .action-card {
+    border-radius: 18px;
+}
+
+.panel-contact .action-card__label {
+    letter-spacing: 0.12em;
+}
+
+.panel-contact .action-card__meta {
+    font-size: 0.82rem;
+    opacity: 0.9;
+}
+
+.panel-contact .action-card::after {
+    width: 110px;
+    height: 110px;
+    right: -24px;
+    bottom: -24px;
+    opacity: 0.35;
+}
+
+.panel-topup .action-card {
+    border-radius: 16px;
+    border-width: 1px;
+}
+
+.panel-topup .topup-cards .action-card {
+    min-height: 84px;
+}
+
+.panel-topup .action-card__label {
+    font-size: clamp(0.92rem, 1.25vw, 1.08rem);
+    text-transform: uppercase;
+}
+
+.panel-topup .action-card__meta {
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+}
+
+.panel-topup .action-card::before {
+    background: linear-gradient(90deg, rgba(255,255,255,0.12), transparent 55%);
+}
+
+.panel-download .action-card:hover {
+    box-shadow: 0 24px 46px rgba(110, 231, 183, 0.15);
+}
+
+.panel-contact .action-card:hover {
+    box-shadow: 0 24px 46px rgba(125, 211, 252, 0.16);
+}
+
+.panel-topup .action-card:hover {
+    box-shadow: 0 24px 46px rgba(249, 168, 212, 0.18);
+}
+
+.contact-layout .action-card.contact-social {
+    min-height: 92px;
+}
+
+.topup-cards .action-card {
+    min-height: 92px;
+}
+
+.is-pressing {
+    animation: pressPulse 360ms var(--ease-out);
+}
+
+.click-ripple {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.42), rgba(255,255,255,0.08) 55%, transparent 72%);
+    transform: translate(-50%, -50%) scale(0);
+    pointer-events: none;
+    z-index: 2;
+    animation: rippleOut 550ms ease-out forwards;
 }
 
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
     .nav-btn, .event-link {
-        padding: 12px 10px;
-        font-size: 0.9rem;
+        padding: 10px 12px;
+        font-size: 0.8rem;
     }
 
-    #download .download-buttons {
-        flex-direction: column;
-        gap: 20px;
-        width: 100%;
+    .action-card {
+        min-height: 88px;
+        padding: 14px;
     }
 
-    #download .download-link,
-    #download a.android,
-    #download a.apple {
-        padding: 20px 40px;
-        font-size: 1.3rem;
-        min-width: 200px;
-        min-height: 60px;
+    .action-card__label {
+        font-size: 0.98rem;
+    }
+
+    .action-card__meta {
+        font-size: 0.78rem;
     }
 }
 
@@ -154,16 +329,26 @@
         display: none;
     }
 
-    #download .download-link,
-    #download a.android,
-    #download a.apple {
-        padding: 15px 30px;
-        font-size: 1rem;
-        min-width: 160px;
-        min-height: 50px;
+    .nav-btn,
+    .event-link {
+        padding: 8px 11px;
+        font-size: 0.7rem;
     }
 
-    #download .download-buttons {
-        gap: 15px;
+    .utility-panel .action-card {
+        padding: 12px;
+        font-size: 0.9rem;
+        min-height: 84px;
+        border-radius: 14px;
+    }
+
+    .action-card__label {
+        font-size: 0.9rem;
+        letter-spacing: 0.05em;
+    }
+
+    .action-card__meta {
+        font-size: 0.74rem;
+        line-height: 1.28;
     }
 }

@@ -25,11 +25,36 @@ function enterSite() {
     overlay.classList.add('hidden');
 }
 
+function addClickAnimation(target, event) {
+    if (!target) {
+        return;
+    }
+
+    target.classList.remove('is-pressing');
+    void target.offsetWidth;
+    target.classList.add('is-pressing');
+
+    const ripple = document.createElement('span');
+    ripple.className = 'click-ripple';
+
+    const rect = target.getBoundingClientRect();
+    const x = event.clientX ? event.clientX - rect.left : rect.width / 2;
+    const y = event.clientY ? event.clientY - rect.top : rect.height / 2;
+
+    ripple.style.left = `${x}px`;
+    ripple.style.top = `${y}px`;
+
+    target.appendChild(ripple);
+    ripple.addEventListener('animationend', () => ripple.remove());
+    target.addEventListener('animationend', () => target.classList.remove('is-pressing'), { once: true });
+}
+
 function showContent(tabId, evt) {
     // 1. Hide all tab contents
     const contents = document.querySelectorAll('.tab-content');
     contents.forEach(content => {
         content.classList.remove('active');
+        content.classList.remove('tab-animate');
     });
 
     // 2. Remove active state from all buttons
@@ -39,7 +64,10 @@ function showContent(tabId, evt) {
     });
 
     // 3. Show the selected tab
-    document.getElementById(tabId).classList.add('active');
+    const nextTab = document.getElementById(tabId);
+    nextTab.classList.add('active');
+    void nextTab.offsetWidth;
+    nextTab.classList.add('tab-animate');
 
     // 4. Highlight the clicked button
     if (evt && evt.currentTarget) {
@@ -99,4 +127,13 @@ function startCarousel() {
 document.addEventListener('DOMContentLoaded', () => {
     showSlide(currentCarouselIndex);
     startCarousel();
+
+    document.addEventListener('click', event => {
+        const animatedTarget = event.target.closest('button, a, .dot');
+        if (!animatedTarget) {
+            return;
+        }
+
+        addClickAnimation(animatedTarget, event);
+    });
 });

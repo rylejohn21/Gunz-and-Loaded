@@ -6,7 +6,6 @@
     <meta name="theme-color" content="#f3c300">
     <link rel="manifest" href="manifest.json">
     <title>Gunz and Loaded | Garena Ops</title>
-    <!-- CSS Modules -->
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/header.css">
@@ -18,10 +17,7 @@
     <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
-
-    <!-- GAMING INTRO OVERLAY -->
     <div id="intro-overlay">
-
         <div class="intro-center">
             <img src="logo.png" alt="Gunz and Loaded" class="intro-logo">
             <h1 class="intro-title">GUNZ & LOADED</h1>
@@ -35,26 +31,24 @@
         <header class="header">
             <div class="logo-container">
                 <img src="logo.png" alt="Gunz and Loaded" class="main-logo">
-                <span class="logo-tagline">GUNZ &amp; LOADED</span>
+                <span class="logo-tagline">GUNZ & LOADED</span>
             </div>
             <nav class="top-nav">
                 <button onclick="showContent('home', event)" class="nav-btn active">HOME</button>
-                <button onclick="showContent('guns', event)" class="nav-btn">GUNS</button>
+                <button onclick="showContent('guns', event)" class="nav-btn">WEAPON</button>
                 <button onclick="showContent('mode', event)" class="nav-btn">MODE</button>
                 <button onclick="showContent('draw', event)" class="nav-btn">DRAW</button>
                 <button onclick="showContent('download', event)" class="nav-btn">DOWNLOAD</button>
+                <button onclick="showContent('contact', event)" class="nav-btn">CONTACT</button>
+                <button onclick="showContent('topup', event)" class="nav-btn">TOP UP</button>
             </nav>
         </header>
 
         <div class="content-wrapper">
-            
-
             <main class="display-box">
-                
-                <section id="home" class="tab-content active">
+                <section id="home" class="tab-content active tab-panel panel-home">
                     <h2>INTEL BRIEFING</h2>
-                    
-                    <!-- AUTOMATIC SLIDING CAROUSEL FOR NEWS/EVENTS -->
+
                     <div class="carousel-container">
                         <div class="carousel-wrapper">
                             <div class="carousel-slide">
@@ -79,25 +73,22 @@
                             <span class="dot" onclick="currentSlide(4)"></span>
                         </div>
                     </div>
-                    
-                    <!-- CONTENT ITEMS -->
+
                     <div class="items">
                         <div class="item">
                             <h3>DMZ: Recon Updates</h3>
                             <div class="media">
                                 <img src="logoremover_1772288948386.jpeg" alt="DMZ Recon Updates" class="item-image">
                             </div>
-                            <p>Enemy reinforcements have landed near a missile site. When this new event appears, it's up to you and your squad to clear out the foes stationed around multiple possible marked sites in order to activate the nearby computer and launch a missile at the moving train.                            
-Time will be of the essence as destroying the train will alert every player in the match. Get there ASAP to claim the goods on the smoldering train, including a special package that can be lockpicked for high quality loot.</p>
+                            <p>Enemy reinforcements have landed near a missile site. When this new event appears, it's up to you and your squad to clear out the foes stationed around multiple possible marked sites in order to activate the nearby computer and launch a missile at the moving train. Time will be of the essence as destroying the train will alert every player in the match. Get there ASAP to claim the goods on the smoldering train, including a special package that can be lockpicked for high quality loot.</p>
                         </div>
-
 
                         <div class="item">
                             <h3>New Battle Royale LTM: Plunder</h3>
                             <div class="media">
                                 <img src="CODM-S2-LUNARCHARGE-003.webp" alt="New Battle Royale LTM: Plunder" class="item-image">
                             </div>
-                            <p>The long awaited, fan-favorite Plunder makes its Call of Duty: Mobile debut as a new BR mode available for all of Season 2! Drop into Isolated as a trio and fight to be the first squad to accumulate $1 million.</p>
+                            <p>The long awaited, fan-favorite Plunder makes its Call of Duty: Mobile debut as a new BR mode available for all of Season 2. Drop into Isolated as a trio and fight to be the first squad to accumulate $1 million.</p>
                         </div>
 
                         <div class="item">
@@ -105,7 +96,7 @@ Time will be of the essence as destroying the train will alert every player in t
                             <div class="media">
                                 <img src="CODM-S2-LUNARCHARGE-004.webp" alt="New Multiplayer Map Variant: Shipment" class="item-image">
                             </div>
-                            <p>The Lunar New Year arrives in Shipment in a new holiday-themed map variant. Head to the infamous locale now featuring an assortment of red and gold tones along with new lighting, falling snow, and festive decorations including firecrackers, Spring Festival couplets, and other themed content placed throughout the map. Live in-game on launch until 2/25 (UTC). </p>
+                            <p>The Lunar New Year arrives in Shipment in a new holiday-themed map variant. Head to the infamous locale now featuring an assortment of red and gold tones along with new lighting, falling snow, and festive decorations including firecrackers, Spring Festival couplets, and other themed content placed throughout the map. Live in-game on launch until 2/25 (UTC).</p>
                         </div>
 
                         <div class="item">
@@ -113,7 +104,7 @@ Time will be of the essence as destroying the train will alert every player in t
                             <div class="media">
                                 <img src="CODM-S2-LUNARCHARGE-007.webp" alt="Secret Cache Update: New Mythic & Event" class="item-image">
                             </div>
-                            <p>Get some extra help with Secret Caches this season with Cache Streak! Earn bonus rewards for opening Secret Caches, which change every day. Build up a daily streak to earn Epic Weapons, an Epic Operator, and more.</p>
+                            <p>Get some extra help with Secret Caches this season with Cache Streak. Earn bonus rewards for opening Secret Caches, which change every day. Build up a daily streak to earn Epic Weapons, an Epic Operator, and more.</p>
                         </div>
 
                         <div class="item">
@@ -129,22 +120,37 @@ Time will be of the essence as destroying the train will alert every player in t
                     </div>
                 </section>
 
-                <section id="guns" class="tab-content">
-                    <h2>THE NEW ARSENAL</h2>
+                <section id="guns" class="tab-content tab-panel panel-guns">
+                    <div class="panel-hero">
+                        <span class="panel-kicker">Elite Arsenal</span>
+                        <h2>THE NEW ARSENAL</h2>
+                        <p>Weapon intel is now presented like a live armory showcase with stronger visuals, quick role callouts, and a more premium tactical layout.</p>
+                    </div>
+                    
                     <div class="items">
                         <div class="item">
                             <h3>M4</h3>
                             <div class="media">
                                 <img src="M4.png" alt="M4 Weapon" class="item-image">
-                            </div><p>Fully automatic assault rifle. Medium range with high accuracy.</p>
+                            </div>
+                            <div class="feature-strip">
+                        <div class="feature-pill">Medium Range</div>
+                        <div class="feature-pill">Primary</div>
+                        <div class="feature-pill">Automatic</div>
+                    </div>
+                            <p>Fully automatic assault rifle. Medium range with high accuracy.</p>
                         </div>
-
 
                         <div class="item">
                             <h3>M21 EBR</h3>
                             <div class="media">
                                 <img src="M21EBR.png" alt="M21EBR Weapon" class="item-image">
                             </div>
+                            <div class="feature-strip">
+                        <div class="feature-pill">Long Range</div>
+                        <div class="feature-pill">Primary</div>
+                        <div class="feature-pill">Semi-Automatic</div>
+                    </div>
                             <p>Semi-automatic sniper rifle. Higher rate of fire with better stability.</p>
                         </div>
 
@@ -153,35 +159,48 @@ Time will be of the essence as destroying the train will alert every player in t
                             <div class="media">
                                 <img src="Striker.png" alt="Striker Weapon" class="item-image">
                             </div>
+                            <div class="feature-strip">
+                        <div class="feature-pill">Short Range</div>
+                        <div class="feature-pill">Medium Range</div>
+                        <div class="feature-pill">Primary</div>
+                        <div class="feature-pill">Automatic</div>
+                    </div>
                             <p>Semi-automatic shotgun with higher accuracy at medium and close range.</p>
                         </div>
 
-                            <div class="item">
+                        <div class="item">
                             <h3>SMRS</h3>
                             <div class="media">
                                 <img src="SMRS.png" alt="SMRS Weapon" class="item-image">
                             </div>
+                            <div class="feature-strip">
+                        <div class="feature-pill">Medium Range</div>
+                        <div class="feature-pill">Long Range</div>
+                        <div class="feature-pill">Secondary</div>
+                        <div class="feature-pill">Single</div>
+                    </div>
                             <p>Disposable rocket launcher that fires without the need to lock onto targets.</p>
                         </div>
-
 
                         <div class="item">
                             <h3>PDW-57</h3>
                             <div class="media">
                                 <img src="PDW57.png" alt="PDW-57 Weapon" class="item-image">
                             </div>
+                            <div class="feature-strip">
+                        <div class="feature-pill">Precision</div>
+                        <div class="feature-pill">Power</div>
+                        <div class="feature-pill">Mobility</div>
+                    </div>
                             <p>Fully automatic personal defense weapon. Increased range and large ammo capacity.</p>
                         </div>
-
                     </div>
                     <div class="section-footer">
                         <img src="footer.png" alt="Footer banner">
                     </div>
                 </section>
 
-
-
-                <section id="mode" class="tab-content">
+                <section id="mode" class="tab-content tab-panel panel-mode">
                     <h2>MODES</h2>
                     <div class="items">
                         <div class="item">
@@ -191,32 +210,27 @@ Time will be of the essence as destroying the train will alert every player in t
                             </div>
                             <p>Fast paced action and close quarters combat. Players enter fan-favourite maps from classic Call of Duty games and battle it out. Scorestreaks that could make or break the upperhand. Detailed weapon customization, game changing perks to change players playstyle and more.</p>
                         </div>
-                        
-                            <div class="item">
+
+                        <div class="item">
                             <h3>Battle Royale</h3>
                             <div class="media">
                                 <video class="item-video" src="BR_10s.mp4" autoplay muted loop playsinline></video>
                             </div>
                             <p>Huge 100 player map that players fight for the #1 spot. Solos, duos and squads fit right in here. Tons of weapons and attachments for players to find. Traverse the huge map with a variety of vehicles that are spawned on the map. Pick a class to give yourself an edge over the enemy.</p>
                         </div>
-
-
-
-
                     </div>
                     <div class="section-footer">
                         <img src="footer.png" alt="Footer banner">
                     </div>
                 </section>
 
-
-                <section id="draw" class="tab-content">
+                <section id="draw" class="tab-content tab-panel panel-draw">
                     <h2>NEW DRAW</h2>
                     <div class="items">
                         <div class="item">
                             <h3>Galaxy Scourge Draw</h3>
                             <div class="media stacked">
-                            <iframe width="895" height="503" src="https://www.youtube.com/embed/yYJzi0Mwl_I" title="Call of Duty®: Mobile - Galaxy Scourge Mythic Drop Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <iframe width="895" height="503" src="https://www.youtube.com/embed/yYJzi0Mwl_I" title="Call of Duty®: Mobile - Galaxy Scourge Mythic Drop Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 <img src="Galaxy Scourge.jpg" alt="Draw preview image" class="item-image large">
                             </div>
                         </div>
@@ -224,7 +238,7 @@ Time will be of the essence as destroying the train will alert every player in t
                         <div class="item">
                             <h3>Flatline Draw</h3>
                             <div class="media stacked">
-                            <iframe width="895" height="503" src="https://www.youtube.com/embed/UG3zoKMoRBY" title="Call of Duty®: Mobile - Flatline Draw Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <iframe width="895" height="503" src="https://www.youtube.com/embed/UG3zoKMoRBY" title="Call of Duty®: Mobile - Flatline Draw Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 <img src="Flatline.jpg" alt="Draw preview image" class="item-image large">
                             </div>
                         </div>
@@ -232,16 +246,15 @@ Time will be of the essence as destroying the train will alert every player in t
                         <div class="item">
                             <h3>Heavenly Ink Draw</h3>
                             <div class="media stacked">
-                            <iframe width="895" height="503" src="https://www.youtube.com/embed/8Ej447OgCEU" title="Call of Duty®: Mobile - Dawn of the Horse Draw Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <iframe width="895" height="503" src="https://www.youtube.com/embed/8Ej447OgCEU" title="Call of Duty®: Mobile - Dawn of the Horse Draw Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 <img src="Heavenly Ink.jpg" alt="Draw preview image" class="item-image large">
                             </div>
                         </div>
 
-                        
                         <div class="item">
                             <h3>Unhinged Jokester Draw</h3>
                             <div class="media stacked">
-                            <iframe width="895" height="503" src="https://www.youtube.com/embed/CmCBhdj5NO4" title="Call of Duty®: Mobile - Unhinged Jokester" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <iframe width="895" height="503" src="https://www.youtube.com/embed/CmCBhdj5NO4" title="Call of Duty®: Mobile - Unhinged Jokester" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 <img src="Unhinged Jokester.jpg" alt="Draw preview image" class="item-image large">
                             </div>
                         </div>
@@ -249,28 +262,77 @@ Time will be of the essence as destroying the train will alert every player in t
                         <div class="item">
                             <h3>Parasite Draw</h3>
                             <div class="media stacked">
-                            <iframe width="895" height="503" src="https://www.youtube.com/embed/29RGrN24RCA" title="Call of Duty®: Mobile - Critical Parasite Draw Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                <img src="Parasite.jpg" alt="Draw pr                                git init
-                                git add .
-                                git commit -m "Initial commit"
-                                git remote add origin https://github.com/yourusername/gunz-and-loaded.git
-                                git push -u origin maineview image" class="item-image large">
+                                <iframe width="895" height="503" src="https://www.youtube.com/embed/29RGrN24RCA" title="Call of Duty®: Mobile - Critical Parasite Draw Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <img src="Parasite.jpg" alt="Draw preview image" class="item-image large">
                             </div>
                         </div>
-
-
-                        
                     </div>
                     <div class="section-footer">
                         <img src="footer.png" alt="Footer banner">
                     </div>
                 </section>
 
-                <!-- download section moved to bottom -->
-                <section id="download" class="tab-content">
-                    <div class="download-buttons">
-                        <a href="https://play.google.com/store/apps/details?id=com.activision.callofduty.shooter&hl=en-US" class="android" target="_blank" rel="noopener noreferrer">Android</a>
-                        <a href="https://apps.apple.com/ph/app/call-of-duty-mobile-garena/id1465688043" class="apple" target="_blank" rel="noopener noreferrer">Apple</a>
+                <section id="download" class="tab-content tab-panel panel-download utility-panel">
+                    <div class="panel-hero">
+                        <span class="panel-kicker">Mission Access</span>
+                        <h2>DOWNLOAD</h2>
+                        <p>Choose your platform and deploy directly into the latest operations.</p>
+                    </div>
+                    <div class="utility-stack utility-stack-download">
+                        <div class="download-buttons">
+                            <a href="https://play.google.com/store/apps/details?id=com.activision.callofduty.shooter&hl=en-US" class="action-card android" target="_blank" rel="noopener noreferrer">
+                                <span class="action-card__label">Android</span>
+                                <span class="action-card__meta">Google Play Store</span>
+                            </a>
+                            <a href="https://apps.apple.com/ph/app/call-of-duty-mobile-garena/id1465688043" class="action-card apple" target="_blank" rel="noopener noreferrer">
+                                <span class="action-card__label">Apple</span>
+                                <span class="action-card__meta">App Store</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="section-footer">
+                        <img src="footer.png" alt="Footer banner">
+                    </div>
+                </section>
+
+                <section id="contact" class="tab-content tab-panel panel-contact utility-panel">
+                    <div class="panel-hero">
+                        <span class="panel-kicker">Field Support</span>
+                        <h2>CONTACT</h2>
+                        <p>Use the fast channels below to reach support, squad coordination, or page assistance..</p>
+                    </div>
+                    <div class="utility-stack contact-layout">
+                        <a href="mailto:codmsmpsupport.zendesk.com" class="action-card contact-mail">
+                            <span class="action-card__label">Email Support</span>
+                            <span class="action-card__meta">codmsmpsupport.zendesk.com</span>
+                        </a>
+                        <a href="https://www.facebook.com/garenacodmPH" class="action-card contact-social" target="_blank" rel="noopener noreferrer">
+                            <span class="action-card__label">Social Channel</span>
+                            <span class="action-card__meta">Open community page</span>
+                        </a>
+                    </div>
+                    <div class="section-footer">
+                        <img src="footer.png" alt="Footer banner">
+                    </div>
+                </section>
+
+                <section id="topup" class="tab-content tab-panel panel-topup utility-panel">
+                    <div class="panel-hero">
+                        <span class="panel-kicker">Combat Credits</span>
+                        <h2>TOP UP</h2>
+                        <p>Quick-launch top up options.</p>
+                    </div>
+                    <div class="utility-stack topup-layout">
+                        <div class="topup-cards">
+                            <a href="https://www.codashop.com/" class="action-card topup-codashop" target="_blank" rel="noopener noreferrer">
+                                <span class="action-card__label">Codashop</span>
+                                <span class="action-card__meta">Fastest Top up Website</span>
+                            </a>
+                            <a href="https://www.garena.com/" class="action-card topup-garena" target="_blank" rel="noopener noreferrer">
+                                <span class="action-card__label">Garena</span>
+                                <span class="action-card__meta">Official Top up Website</span>
+                            </a>
+                        </div>
                     </div>
                     <div class="section-footer">
                         <img src="footer.png" alt="Footer banner">
@@ -283,27 +345,24 @@ Time will be of the essence as destroying the train will alert every player in t
     <script src="js/script.js"></script>
     <script>
       if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js');
+        window.addEventListener('load', async () => {
+          const isLocalHost = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+
+          if (isLocalHost) {
+            const registrations = await navigator.serviceWorker.getRegistrations();
+            await Promise.all(registrations.map(registration => registration.unregister()));
+
+            if ('caches' in window) {
+              const cacheNames = await caches.keys();
+              await Promise.all(cacheNames.map(cacheName => caches.delete(cacheName)));
+            }
+
+            return;
+          }
+
+          navigator.serviceWorker.register('/sw.js?v=2');
         });
       }
     </script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    <script src="script.js"></script>
 </body>
 </html>
