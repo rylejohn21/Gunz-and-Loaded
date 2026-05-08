@@ -20,10 +20,68 @@
     <div id="intro-overlay">
         <div class="intro-center">
             <img src="logo.png" alt="Gunz and Loaded" class="intro-logo">
-            <h1 class="intro-title">GUNZ & LOADED</h1>
-            <button class="enter-btn" onclick="enterSite()">
-                <span class="btn-icon">⌖</span> HOME <span class="muzzle-flash"></span>
-            </button>
+        
+        
+
+            <section class="auth-panel" aria-label="Authentication">
+                <div class="auth-mode-switch" role="tablist" aria-label="Authentication modes">
+                    <button id="login-tab" class="auth-tab active" type="button" data-auth-view="login" role="tab" aria-selected="true">Log In</button>
+                    <button id="signup-tab" class="auth-tab" type="button" data-auth-view="signup" role="tab" aria-selected="false">Register</button>
+                </div>
+
+                <p id="auth-status" class="auth-status" role="status" aria-live="polite"></p>
+                <p id="auth-error" class="auth-error" role="alert" aria-live="assertive"></p>
+
+                <form id="login-form" class="auth-form active" data-auth-form="login">
+                    <label class="auth-field">
+                        <span>Email</span>
+                        <input id="login-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                    </label>
+                    <label class="auth-field">
+                        <span>Password</span>
+                        <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+                    </label>
+                    <button id="login-submit" class="enter-btn auth-submit" type="submit">
+                        <span class="btn-icon">⌖</span> Log In <span class="muzzle-flash"></span>
+                    </button>
+                    <button class="auth-text-link" type="button" data-auth-view="forgot">Forgot Password?</button>
+                </form>
+
+                <form id="signup-form" class="auth-form" data-auth-form="signup">
+                    <label class="auth-field">
+                        <span>Email</span>
+                        <input id="signup-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                    </label>
+                    <label class="auth-field">
+                        <span>Password</span>
+                        <input id="signup-password" name="password" type="password" autocomplete="new-password" placeholder="Create a password" minlength="6" required>
+                    </label>
+                    <button id="signup-submit" class="enter-btn auth-submit" type="submit">
+                        <span class="btn-icon">⌖</span> Register <span class="muzzle-flash"></span>
+                    </button>
+                </form>
+
+                <form id="forgot-form" class="auth-form" data-auth-form="forgot">
+                    <label class="auth-field">
+                        <span>Email</span>
+                        <input id="forgot-email" name="email" type="email" autocomplete="email" placeholder="Enter your account email" required>
+                    </label>
+                    <button id="forgot-submit" class="enter-btn auth-submit" type="submit">
+                        <span class="btn-icon">⌖</span> Send Reset Link <span class="muzzle-flash"></span>
+                    </button>
+                    <button class="auth-text-link" type="button" data-auth-view="login">Back to Log In</button>
+                </form>
+
+                <form id="reset-form" class="auth-form" data-auth-form="reset">
+                    <label class="auth-field">
+                        <span>New Password</span>
+                        <input id="reset-password" name="password" type="password" autocomplete="new-password" placeholder="Create a new password" minlength="6" required>
+                    </label>
+                    <button id="reset-submit" class="enter-btn auth-submit" type="submit">
+                        <span class="btn-icon">⌖</span> Update Password <span class="muzzle-flash"></span>
+                    </button>
+                </form>
+            </section>
         </div>
     </div>
 
@@ -33,7 +91,7 @@
                 <img src="logo.png" alt="Gunz and Loaded" class="main-logo">
                 <span class="logo-tagline">GUNZ & LOADED</span>
             </div>
-            <nav class="top-nav">
+            <nav class="top-nav" aria-label="Primary">
                 <button onclick="showContent('home', event)" class="nav-btn active">HOME</button>
                 <button onclick="showContent('guns', event)" class="nav-btn">WEAPON</button>
                 <button onclick="showContent('mode', event)" class="nav-btn">MODE</button>
@@ -42,6 +100,10 @@
                 <button onclick="showContent('contact', event)" class="nav-btn">CONTACT</button>
                 <button onclick="showContent('topup', event)" class="nav-btn">TOP UP</button>
             </nav>
+            <div class="auth-session">
+                <span id="session-email" class="session-email">Guest</span>
+                <button id="logout-btn" class="nav-btn logout-btn" type="button" hidden>LOG OUT</button>
+            </div>
         </header>
 
         <div class="content-wrapper">
@@ -112,7 +174,7 @@
                             <div class="media">
                                 <img src="CODM-S2-LUNARCHARGE-010.webp" alt="Premium Pass Tiers" class="item-image">
                             </div>
-                            <p>Purchase the Premium Pass for the chance to earn all the content in the Lunar Charge stream, including Operator Skins like Park — VNN Field Reporter, Stitch — The Butcher of Zordaya, Isabella — Puno, and a Sliver Good Fortune. Access hard-hitting Weapon Blueprints like the DLQ33 — Aftermath, PP19 — Headliner, SKS — Prison Break, and the Lachman-556 — Full Steam, based on the new Season 2 weapon.</p>
+                            <p>Purchase the Premium Pass for the chance to earn all the content in the Lunar Charge stream, including Operator Skins like Park - VNN Field Reporter, Stitch - The Butcher of Zordaya, Isabella - Puno, and a Sliver Good Fortune. Access hard-hitting Weapon Blueprints like the DLQ33 - Aftermath, PP19 - Headliner, SKS - Prison Break, and the Lachman-556 - Full Steam, based on the new Season 2 weapon.</p>
                         </div>
                     </div>
                     <div class="section-footer">
@@ -134,10 +196,10 @@
                                 <img src="M4.png" alt="M4 Weapon" class="item-image">
                             </div>
                             <div class="feature-strip">
-                        <div class="feature-pill">Medium Range</div>
-                        <div class="feature-pill">Primary</div>
-                        <div class="feature-pill">Automatic</div>
-                    </div>
+                                <div class="feature-pill">Medium Range</div>
+                                <div class="feature-pill">Primary</div>
+                                <div class="feature-pill">Automatic</div>
+                            </div>
                             <p>Fully automatic assault rifle. Medium range with high accuracy.</p>
                         </div>
 
@@ -147,10 +209,10 @@
                                 <img src="M21EBR.png" alt="M21EBR Weapon" class="item-image">
                             </div>
                             <div class="feature-strip">
-                        <div class="feature-pill">Long Range</div>
-                        <div class="feature-pill">Primary</div>
-                        <div class="feature-pill">Semi-Automatic</div>
-                    </div>
+                                <div class="feature-pill">Long Range</div>
+                                <div class="feature-pill">Primary</div>
+                                <div class="feature-pill">Semi-Automatic</div>
+                            </div>
                             <p>Semi-automatic sniper rifle. Higher rate of fire with better stability.</p>
                         </div>
 
@@ -160,11 +222,11 @@
                                 <img src="Striker.png" alt="Striker Weapon" class="item-image">
                             </div>
                             <div class="feature-strip">
-                        <div class="feature-pill">Short Range</div>
-                        <div class="feature-pill">Medium Range</div>
-                        <div class="feature-pill">Primary</div>
-                        <div class="feature-pill">Automatic</div>
-                    </div>
+                                <div class="feature-pill">Short Range</div>
+                                <div class="feature-pill">Medium Range</div>
+                                <div class="feature-pill">Primary</div>
+                                <div class="feature-pill">Automatic</div>
+                            </div>
                             <p>Semi-automatic shotgun with higher accuracy at medium and close range.</p>
                         </div>
 
@@ -174,11 +236,11 @@
                                 <img src="SMRS.png" alt="SMRS Weapon" class="item-image">
                             </div>
                             <div class="feature-strip">
-                        <div class="feature-pill">Medium Range</div>
-                        <div class="feature-pill">Long Range</div>
-                        <div class="feature-pill">Secondary</div>
-                        <div class="feature-pill">Single</div>
-                    </div>
+                                <div class="feature-pill">Medium Range</div>
+                                <div class="feature-pill">Long Range</div>
+                                <div class="feature-pill">Secondary</div>
+                                <div class="feature-pill">Single</div>
+                            </div>
                             <p>Disposable rocket launcher that fires without the need to lock onto targets.</p>
                         </div>
 
@@ -188,10 +250,10 @@
                                 <img src="PDW57.png" alt="PDW-57 Weapon" class="item-image">
                             </div>
                             <div class="feature-strip">
-                        <div class="feature-pill">Precision</div>
-                        <div class="feature-pill">Power</div>
-                        <div class="feature-pill">Mobility</div>
-                    </div>
+                                <div class="feature-pill">Precision</div>
+                                <div class="feature-pill">Power</div>
+                                <div class="feature-pill">Mobility</div>
+                            </div>
                             <p>Fully automatic personal defense weapon. Increased range and large ammo capacity.</p>
                         </div>
                     </div>
@@ -230,7 +292,7 @@
                         <div class="item">
                             <h3>Galaxy Scourge Draw</h3>
                             <div class="media stacked">
-                                <iframe width="895" height="503" src="https://www.youtube.com/embed/yYJzi0Mwl_I" title="Call of Duty®: Mobile - Galaxy Scourge Mythic Drop Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <iframe width="895" height="503" src="https://www.youtube.com/embed/yYJzi0Mwl_I" title="Call of Duty Mobile - Galaxy Scourge Mythic Drop Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 <img src="Galaxy Scourge.jpg" alt="Draw preview image" class="item-image large">
                             </div>
                         </div>
@@ -238,7 +300,7 @@
                         <div class="item">
                             <h3>Flatline Draw</h3>
                             <div class="media stacked">
-                                <iframe width="895" height="503" src="https://www.youtube.com/embed/UG3zoKMoRBY" title="Call of Duty®: Mobile - Flatline Draw Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <iframe width="895" height="503" src="https://www.youtube.com/embed/UG3zoKMoRBY" title="Call of Duty Mobile - Flatline Draw Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 <img src="Flatline.jpg" alt="Draw preview image" class="item-image large">
                             </div>
                         </div>
@@ -246,7 +308,7 @@
                         <div class="item">
                             <h3>Heavenly Ink Draw</h3>
                             <div class="media stacked">
-                                <iframe width="895" height="503" src="https://www.youtube.com/embed/8Ej447OgCEU" title="Call of Duty®: Mobile - Dawn of the Horse Draw Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <iframe width="895" height="503" src="https://www.youtube.com/embed/8Ej447OgCEU" title="Call of Duty Mobile - Dawn of the Horse Draw Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 <img src="Heavenly Ink.jpg" alt="Draw preview image" class="item-image large">
                             </div>
                         </div>
@@ -254,7 +316,7 @@
                         <div class="item">
                             <h3>Unhinged Jokester Draw</h3>
                             <div class="media stacked">
-                                <iframe width="895" height="503" src="https://www.youtube.com/embed/CmCBhdj5NO4" title="Call of Duty®: Mobile - Unhinged Jokester" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <iframe width="895" height="503" src="https://www.youtube.com/embed/CmCBhdj5NO4" title="Call of Duty Mobile - Unhinged Jokester" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 <img src="Unhinged Jokester.jpg" alt="Draw preview image" class="item-image large">
                             </div>
                         </div>
@@ -262,7 +324,7 @@
                         <div class="item">
                             <h3>Parasite Draw</h3>
                             <div class="media stacked">
-                                <iframe width="895" height="503" src="https://www.youtube.com/embed/29RGrN24RCA" title="Call of Duty®: Mobile - Critical Parasite Draw Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                <iframe width="895" height="503" src="https://www.youtube.com/embed/29RGrN24RCA" title="Call of Duty Mobile - Critical Parasite Draw Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                                 <img src="Parasite.jpg" alt="Draw preview image" class="item-image large">
                             </div>
                         </div>
@@ -299,7 +361,7 @@
                     <div class="panel-hero">
                         <span class="panel-kicker">Field Support</span>
                         <h2>CONTACT</h2>
-                        <p>Use the fast channels below to reach support, squad coordination, or page assistance..</p>
+                        <p>Use the fast channels below to reach support, squad coordination, or page assistance.</p>
                     </div>
                     <div class="utility-stack contact-layout">
                         <a href="mailto:codmsmpsupport.zendesk.com" class="action-card contact-mail">
@@ -342,7 +404,7 @@
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script type="module" src="js/script.js"></script>
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', async () => {
