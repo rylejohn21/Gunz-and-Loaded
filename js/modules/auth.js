@@ -18,7 +18,7 @@ const supabase = isSupabaseConfigured
         auth: {
             autoRefreshToken: true,
             persistSession: true,
-            detectSessionInUrl: true
+            detectSessionInUrl: false
         }
     })
     : null;
@@ -251,6 +251,34 @@ export function initialiseAuth({ showContent }) {
         setLoadingState("reset-submit", true, `${ICON_HTML} Update Password <span class="muzzle-flash"></span>`, "Updating...");
 
         try {
+            // If the recovery link included temporary tokens in the URL hash/search,
+            // set them as the session so `updateUser` is authorized. We avoid
+            // auto-detecting sessions on load so users aren't automatically
+            // signed-in when they click the email link.
+            function extractAuthParams() {
+                const combined = new URLSearchParams(window.location.search);
+                const hash = window.location.hash.replace(/^#/, "");
+                if (hash) {
+                    const hashParams = new URLSearchParams(hash);
+                    for (const [k, v] of hashParams.entries()) {
+                        if (!combined.has(k)) combined.set(k, v);
+                    }
+                }
+
+                return {
+                    access_token: combined.get("access_token"),
+                    refresh_token: combined.get("refresh_token")
+                };
+            }
+
+            const { access_token, refresh_token } = extractAuthParams();
+            if (access_token) {
+                const { error: setSessionError } = await supabase.auth.setSession({ access_token, refresh_token });
+                if (setSessionError) {
+                    throw setSessionError;
+                }
+            }
+
             const { data, error } = await supabase.auth.updateUser({ password });
             if (error) {
                 throw error;
